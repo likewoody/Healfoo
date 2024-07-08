@@ -11,7 +11,7 @@ import SwiftUI
 struct HealfooApp: App {
     var body: some Scene {
         WindowGroup {
-            RecommendView()
+            HealfooTab()
         }
     }
 }

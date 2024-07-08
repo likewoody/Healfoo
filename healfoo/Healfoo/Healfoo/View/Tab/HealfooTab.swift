@@ -10,16 +10,16 @@ import SwiftUI
 struct HealfooTab: View {
     @State var selection: Int = 0
     var body: some View {
-        TabView(selection: .constant(1),
+        TabView(selection: .constant(0),
                 content:  {
             RecommendView().tabItem {
                 Image(systemName: "star.fill")
                 Text("음식 추천")
                     .padding()
             }.tag(0)
-            Text("Tab Content 2").tabItem {
+            History().tabItem {
                 Image(systemName: "clock")
-                Text("검색 히스토리")
+                Text("히스토리")
             }.tag(1)
         }) // TabView
     } // body

@@ -7,34 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8054B3A2C3C03200013148A /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8054B392C3C03200013148A /* HistoryModel.swift */; };
+		C8054B3C2C3C03930013148A /* SQLiteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8054B3B2C3C03930013148A /* SQLiteVM.swift */; };
 		C83762CB2C33B4B20079A9AD /* HealfooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83762CA2C33B4B20079A9AD /* HealfooApp.swift */; };
-		C83762CD2C33B4B20079A9AD /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83762CC2C33B4B20079A9AD /* RecommendView.swift */; };
 		C83762CF2C33B4B30079A9AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83762CE2C33B4B30079A9AD /* Assets.xcassets */; };
 		C83762D22C33B4B30079A9AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83762D12C33B4B30079A9AD /* Preview Assets.xcassets */; };
-		C83DCA252C356883003A04D0 /* NeedVitamins.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83DCA242C356883003A04D0 /* NeedVitamins.swift */; };
-		C83DCA272C3568B4003A04D0 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83DCA262C3568B4003A04D0 /* MaterialView.swift */; };
-		C83DCA292C3568D9003A04D0 /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83DCA282C3568D9003A04D0 /* FoodView.swift */; };
-		C847998A2C33FF0A0057B6BE /* QueryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84799892C33FF0A0057B6BE /* QueryModel.swift */; };
-		C847998D2C3400720057B6BE /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = C847998C2C3400720057B6BE /* Show.swift */; };
+		C847998A2C33FF0A0057B6BE /* MySQLVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84799892C33FF0A0057B6BE /* MySQLVM.swift */; };
 		C866885D2C3563CA001C6537 /* Recommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866885C2C3563CA001C6537 /* Recommend.swift */; };
-		C8E95DAA2C3538F700C8EF11 /* HealfooTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E95DA92C3538F700C8EF11 /* HealfooTab.swift */; };
-		C8E95DAD2C353AD200C8EF11 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E95DAC2C353AD200C8EF11 /* History.swift */; };
+		C89E96402C3BA18800387ED1 /* CustomDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89E963F2C3BA18800387ED1 /* CustomDateView.swift */; };
+		C89E96422C3BA7DD00387ED1 /* ShowDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89E96412C3BA7DD00387ED1 /* ShowDate.swift */; };
+		C89E96462C3BE6E200387ED1 /* DateState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89E96452C3BE6E200387ED1 /* DateState.swift */; };
+		C8D8114E2C35734F00392D06 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D811422C35734F00392D06 /* History.swift */; };
+		C8D8114F2C35734F00392D06 /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D811442C35734F00392D06 /* FoodView.swift */; };
+		C8D811502C35734F00392D06 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D811452C35734F00392D06 /* MaterialView.swift */; };
+		C8D811512C35734F00392D06 /* NeedVitamins.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D811462C35734F00392D06 /* NeedVitamins.swift */; };
+		C8D811522C35734F00392D06 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D811472C35734F00392D06 /* Show.swift */; };
+		C8D811532C35734F00392D06 /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D811492C35734F00392D06 /* RecommendView.swift */; };
+		C8D811542C35734F00392D06 /* HealfooTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D8114B2C35734F00392D06 /* HealfooTab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C8054B392C3C03200013148A /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		C8054B3B2C3C03930013148A /* SQLiteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteVM.swift; sourceTree = "<group>"; };
 		C83762C72C33B4B20079A9AD /* Healfoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Healfoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83762CA2C33B4B20079A9AD /* HealfooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealfooApp.swift; sourceTree = "<group>"; };
-		C83762CC2C33B4B20079A9AD /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
 		C83762CE2C33B4B30079A9AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C83762D12C33B4B30079A9AD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C83DCA242C356883003A04D0 /* NeedVitamins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedVitamins.swift; sourceTree = "<group>"; };
-		C83DCA262C3568B4003A04D0 /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
-		C83DCA282C3568D9003A04D0 /* FoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
-		C84799892C33FF0A0057B6BE /* QueryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryModel.swift; sourceTree = "<group>"; };
-		C847998C2C3400720057B6BE /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		C84799892C33FF0A0057B6BE /* MySQLVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySQLVM.swift; sourceTree = "<group>"; };
 		C866885C2C3563CA001C6537 /* Recommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommend.swift; sourceTree = "<group>"; };
-		C8E95DA92C3538F700C8EF11 /* HealfooTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealfooTab.swift; sourceTree = "<group>"; };
-		C8E95DAC2C353AD200C8EF11 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		C89E963F2C3BA18800387ED1 /* CustomDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateView.swift; sourceTree = "<group>"; };
+		C89E96412C3BA7DD00387ED1 /* ShowDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDate.swift; sourceTree = "<group>"; };
+		C89E96452C3BE6E200387ED1 /* DateState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateState.swift; sourceTree = "<group>"; };
+		C8A62A5C2C38C67D00F580F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C8D811422C35734F00392D06 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		C8D811442C35734F00392D06 /* FoodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
+		C8D811452C35734F00392D06 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		C8D811462C35734F00392D06 /* NeedVitamins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedVitamins.swift; sourceTree = "<group>"; };
+		C8D811472C35734F00392D06 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		C8D811492C35734F00392D06 /* RecommendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
+		C8D8114B2C35734F00392D06 /* HealfooTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealfooTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +78,10 @@
 		C83762C92C33B4B20079A9AD /* Healfoo */ = {
 			isa = PBXGroup;
 			children = (
+				C8A62A5C2C38C67D00F580F9 /* Info.plist */,
+				C8D8114D2C35734F00392D06 /* View */,
 				C83762DA2C33C1770079A9AD /* VM */,
 				C83762D92C33C1710079A9AD /* Model */,
-				C83762D82C33C16D0079A9AD /* View */,
 				C83762CA2C33B4B20079A9AD /* HealfooApp.swift */,
 				C83762CE2C33B4B30079A9AD /* Assets.xcassets */,
 				C83762D02C33B4B30079A9AD /* Preview Content */,
@@ -85,21 +97,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C83762D82C33C16D0079A9AD /* View */ = {
-			isa = PBXGroup;
-			children = (
-				C8E95DAB2C353ACD00C8EF11 /* History */,
-				C8E95DA82C3538ED00C8EF11 /* Tab */,
-				C847998B2C3400660057B6BE /* Recommend */,
-			);
-			name = View;
-			path = "퍋ㅈ";
-			sourceTree = "<group>";
-		};
 		C83762D92C33C1710079A9AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C89E96452C3BE6E200387ED1 /* DateState.swift */,
 				C866885C2C3563CA001C6537 /* Recommend.swift */,
+				C8054B392C3C03200013148A /* HistoryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,45 +110,66 @@
 		C83762DA2C33C1770079A9AD /* VM */ = {
 			isa = PBXGroup;
 			children = (
-				C84799892C33FF0A0057B6BE /* QueryModel.swift */,
+				C84799892C33FF0A0057B6BE /* MySQLVM.swift */,
+				C8054B3B2C3C03930013148A /* SQLiteVM.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
 		};
-		C83DCA232C356876003A04D0 /* Show */ = {
+		C89E963E2C3BA17F00387ED1 /* Date */ = {
 			isa = PBXGroup;
 			children = (
-				C847998C2C3400720057B6BE /* Show.swift */,
-				C83DCA242C356883003A04D0 /* NeedVitamins.swift */,
-				C83DCA262C3568B4003A04D0 /* MaterialView.swift */,
-				C83DCA282C3568D9003A04D0 /* FoodView.swift */,
+				C89E963F2C3BA18800387ED1 /* CustomDateView.swift */,
+				C89E96412C3BA7DD00387ED1 /* ShowDate.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		C8D811432C35734F00392D06 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				C89E963E2C3BA17F00387ED1 /* Date */,
+				C8D811422C35734F00392D06 /* History.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		C8D811482C35734F00392D06 /* Show */ = {
+			isa = PBXGroup;
+			children = (
+				C8D811442C35734F00392D06 /* FoodView.swift */,
+				C8D811452C35734F00392D06 /* MaterialView.swift */,
+				C8D811462C35734F00392D06 /* NeedVitamins.swift */,
+				C8D811472C35734F00392D06 /* Show.swift */,
 			);
 			path = Show;
 			sourceTree = "<group>";
 		};
-		C847998B2C3400660057B6BE /* Recommend */ = {
+		C8D8114A2C35734F00392D06 /* Recommend */ = {
 			isa = PBXGroup;
 			children = (
-				C83DCA232C356876003A04D0 /* Show */,
-				C83762CC2C33B4B20079A9AD /* RecommendView.swift */,
+				C8D811482C35734F00392D06 /* Show */,
+				C8D811492C35734F00392D06 /* RecommendView.swift */,
 			);
 			path = Recommend;
 			sourceTree = "<group>";
 		};
-		C8E95DA82C3538ED00C8EF11 /* Tab */ = {
+		C8D8114C2C35734F00392D06 /* Tab */ = {
 			isa = PBXGroup;
 			children = (
-				C8E95DA92C3538F700C8EF11 /* HealfooTab.swift */,
+				C8D8114B2C35734F00392D06 /* HealfooTab.swift */,
 			);
 			path = Tab;
 			sourceTree = "<group>";
 		};
-		C8E95DAB2C353ACD00C8EF11 /* History */ = {
+		C8D8114D2C35734F00392D06 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C8E95DAC2C353AD200C8EF11 /* History.swift */,
+				C8D811432C35734F00392D06 /* History */,
+				C8D8114A2C35734F00392D06 /* Recommend */,
+				C8D8114C2C35734F00392D06 /* Tab */,
 			);
-			path = History;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,11 +209,12 @@
 			};
 			buildConfigurationList = C83762C22C33B4B20079A9AD /* Build configuration list for PBXProject "Healfoo" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = C83762BE2C33B4B20079A9AD;
 			productRefGroup = C83762C82C33B4B20079A9AD /* Products */;
@@ -218,16 +243,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C847998A2C33FF0A0057B6BE /* QueryModel.swift in Sources */,
+				C847998A2C33FF0A0057B6BE /* MySQLVM.swift in Sources */,
+				C8D811532C35734F00392D06 /* RecommendView.swift in Sources */,
+				C8054B3A2C3C03200013148A /* HistoryModel.swift in Sources */,
+				C8D8114F2C35734F00392D06 /* FoodView.swift in Sources */,
 				C866885D2C3563CA001C6537 /* Recommend.swift in Sources */,
-				C8E95DAD2C353AD200C8EF11 /* History.swift in Sources */,
-				C83DCA272C3568B4003A04D0 /* MaterialView.swift in Sources */,
-				C83762CD2C33B4B20079A9AD /* RecommendView.swift in Sources */,
-				C83DCA252C356883003A04D0 /* NeedVitamins.swift in Sources */,
-				C83DCA292C3568D9003A04D0 /* FoodView.swift in Sources */,
-				C847998D2C3400720057B6BE /* Show.swift in Sources */,
+				C89E96422C3BA7DD00387ED1 /* ShowDate.swift in Sources */,
+				C8D811542C35734F00392D06 /* HealfooTab.swift in Sources */,
+				C8D811512C35734F00392D06 /* NeedVitamins.swift in Sources */,
+				C8054B3C2C3C03930013148A /* SQLiteVM.swift in Sources */,
+				C8D811502C35734F00392D06 /* MaterialView.swift in Sources */,
+				C8D8114E2C35734F00392D06 /* History.swift in Sources */,
+				C8D811522C35734F00392D06 /* Show.swift in Sources */,
+				C89E96462C3BE6E200387ED1 /* DateState.swift in Sources */,
+				C89E96402C3BA18800387ED1 /* CustomDateView.swift in Sources */,
 				C83762CB2C33B4B20079A9AD /* HealfooApp.swift in Sources */,
-				C8E95DAA2C3538F700C8EF11 /* HealfooTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +394,7 @@
 				DEVELOPMENT_TEAM = X72JH3LXAV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Healfoo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -393,6 +424,7 @@
 				DEVELOPMENT_TEAM = X72JH3LXAV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Healfoo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -50,9 +50,11 @@ struct Show: View {
         }  // NavigationStack
         .preferredColorScheme(.light)
         .onAppear(perform: {
-            let query = QueryModel()
+            let query = MySQLVM()
+            let sqlite = SQLiteVM()
             Task{
-                recommend = await query.urlRecommend(httpURL: "http://127.0.0.1:8000/recommendByUserInput?userInput=\(symptom)")
+                recommend = await query.urlRecommend(userInput: symptom)
+                _ = sqlite.insertDB(symptom: symptom, vitamins: recommend.needVitamins)
             } // Task
         }) // onAppear
         .onDisappear(perform: {
