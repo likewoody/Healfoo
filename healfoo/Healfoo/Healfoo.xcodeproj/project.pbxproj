@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C8054B3A2C3C03200013148A /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8054B392C3C03200013148A /* HistoryModel.swift */; };
+		C8054B3A2C3C03200013148A /* HistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8054B392C3C03200013148A /* HistModel.swift */; };
 		C8054B3C2C3C03930013148A /* SQLiteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8054B3B2C3C03930013148A /* SQLiteVM.swift */; };
 		C83762CB2C33B4B20079A9AD /* HealfooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83762CA2C33B4B20079A9AD /* HealfooApp.swift */; };
 		C83762CF2C33B4B30079A9AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83762CE2C33B4B30079A9AD /* Assets.xcassets */; };
@@ -27,7 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C8054B392C3C03200013148A /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		C8054B392C3C03200013148A /* HistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistModel.swift; sourceTree = "<group>"; };
 		C8054B3B2C3C03930013148A /* SQLiteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteVM.swift; sourceTree = "<group>"; };
 		C83762C72C33B4B20079A9AD /* Healfoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Healfoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83762CA2C33B4B20079A9AD /* HealfooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealfooApp.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 			children = (
 				C89E96452C3BE6E200387ED1 /* DateState.swift */,
 				C866885C2C3563CA001C6537 /* Recommend.swift */,
-				C8054B392C3C03200013148A /* HistoryModel.swift */,
+				C8054B392C3C03200013148A /* HistModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 			files = (
 				C847998A2C33FF0A0057B6BE /* MySQLVM.swift in Sources */,
 				C8D811532C35734F00392D06 /* RecommendView.swift in Sources */,
-				C8054B3A2C3C03200013148A /* HistoryModel.swift in Sources */,
+				C8054B3A2C3C03200013148A /* HistModel.swift in Sources */,
 				C8D8114F2C35734F00392D06 /* FoodView.swift in Sources */,
 				C866885D2C3563CA001C6537 /* Recommend.swift in Sources */,
 				C89E96422C3BA7DD00387ED1 /* ShowDate.swift in Sources */,

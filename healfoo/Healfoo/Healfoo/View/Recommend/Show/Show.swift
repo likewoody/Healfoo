@@ -9,7 +9,10 @@
     Author : Woody
     Date : 2024.07.02
     Description : 증상에 따른 음식 추천을 Show 화면
-    Version : 1.0.0
+ 
+    2.
+    Date : 2024.07.08
+    Description : show 할 때 SQLite Insert 연결 작업 
  */
 
 import SwiftUI
@@ -52,9 +55,13 @@ struct Show: View {
         .onAppear(perform: {
             let query = MySQLVM()
             let sqlite = SQLiteVM()
+            
             Task{
                 recommend = await query.urlRecommend(userInput: symptom)
-                _ = sqlite.insertDB(symptom: symptom, vitamins: recommend.needVitamins)
+                
+                // needVitamins "," 기준으로 나눠서 String으로 변환
+                let vitamins = recommend.needVitamins.joined(separator: ",")
+                _ = sqlite.insertDB(symptom: symptom, vitamins: vitamins)
             } // Task
         }) // onAppear
         .onDisappear(perform: {

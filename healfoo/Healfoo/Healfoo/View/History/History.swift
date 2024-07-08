@@ -11,6 +11,9 @@
     Description : 히스토리 View 특이사항은 없다. 다만 opacity background 할 때 BackgroundClearView를 활용하자
 */
 
+
+// 내일 작업해야 할 것 날짜에 맞는 select만 보여주는 작업을 완료 해야 함.
+
 import SwiftUI
 
 struct History: View {
@@ -18,7 +21,7 @@ struct History: View {
     // Published를 Binding 하기 위해서는 StateObject or ObservedObject 사용
     @StateObject var dateState = DateState()
     @Environment(\.dismiss) var dismiss
-    @State var history: [HistoryModel] = []
+    @State var history: [HistModel] = []
     
     var dateFormatter: DateFormatter{
         let dateFormatter = DateFormatter()
@@ -28,36 +31,34 @@ struct History: View {
     
     var body: some View {
         NavigationStack {
-            HStack(content: {
-                Text("\(dateFormatter.string(from: dateState.startDate)) ~ \(dateFormatter.string(from: dateState.lastDate))")
-                    .padding(.leading, 30)
-                
-                Spacer()
-                
-                Button("기간 설정") {
-                    dateState.showDatePicker = true
-                }
-                .padding(.trailing, 30)
-            })
             
-//            List{
-//                ForEach(history, id: \.id) { hist in
-//                    Text(hist.symptom)
-//                    ForEach(history.vitamins) { vitamin in
-//                        Text(vitamin)
-//                    }
-//                }
-//            }
-            
-                
-                 
-//                ForEach(history, id: \.id) { hist in
-//                    VStack(content: {
-//                        Text(hist.symptom)
-//                        
-//                        Text(hist.vitamins)
-//                    }) // VStack
-//                } // ForEach
+            Section {
+                List{
+                    ForEach(history, id: \.id) { hist in
+                        VStack(alignment: .leading ,content: {
+                            Text(hist.symptom)
+                                .font(.title3)
+                                .bold()
+                            
+                            Text(hist.vitamins)
+                        }) // VStack
+                        
+                    } // ForEach
+                    .padding()
+                } // List
+            } header: {
+                HStack(content: {
+                    Text("\(dateFormatter.string(from: dateState.startDate)) ~ \(dateFormatter.string(from: dateState.lastDate))")
+                        .padding(.leading, 15)
+                    Spacer()
+                    Button("기간 설정") {
+                        dateState.showDatePicker = true
+                    }
+                    .padding(.trailing, 15)
+                })
+                .frame(height: 60)
+
+            } // Section - Header
         } // NavigationStack
         .fullScreenCover(isPresented: $dateState.showDatePicker, content: {
             CustomDateView(dateState: dateState)

@@ -33,9 +33,11 @@ struct SQLiteVM{
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             symptom TEXT,
             vitamins TEXT,
-            date TEXT,
+            date Date
         )
         """
+        // Date 타입
+        
         // Table 만들기
         // DOUBLE 대신에 => REAL 사용
         if sqlite3_exec(db, createTableQuery, nil, nil, nil) != SQLITE_OK {
@@ -48,8 +50,8 @@ struct SQLiteVM{
     // search Query
     // SwiftUI에서는 Protocol 사용 대신에 SearchQuery에서 [Student] type으로 바로 return 해준다.
     // 작업처리가 몇번 덜 움직이기 때문에 효율적이다.
-    func searchDB() -> [HistoryModel]{
-        var hist: [HistoryModel] = []
+    func searchDB() -> [HistModel]{
+        var hist: [HistModel] = []
         
         var stmt: OpaquePointer?
         let queryString = "SELECT * FROM history ORDER BY date DESC"
@@ -66,23 +68,27 @@ struct SQLiteVM{
             let id = Int(sqlite3_column_int(stmt, 0))
             let symptom = String(cString: sqlite3_column_text(stmt, 1))
             let vitamins = String(cString: sqlite3_column_text(stmt, 2))
-            let date = String(cString: sqlite3_column_text(stmt, 3))
             
-            hist.append(HistoryModel(id: id, symptom: symptom, vitamins: [vitamins], date: date))
+            // Date 타입 불러오기
+            let dateTimestamp = sqlite3_column_int64(stmt, 3)
+            let date = Date(timeIntervalSince1970: TimeInterval(dateTimestamp))
+            
+            hist.append(HistModel(id: id, symptom: symptom, vitamins: vitamins, date: date))
         }
         return hist
     }
     
     
     // insert
-    func insertDB(symptom: String, vitamins: [String]) -> Bool{
+    func insertDB(symptom: String, vitamins: String) -> Bool{
 
         var stmt: OpaquePointer?
         
         // 2 bytes의 코드를 쓰는 곳에서 사용함 (한글)
         // -1 unlimit length 데이터 크기를 의미한다
         let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
-        let queryString = "INSERT INTO history (symptom, vitamins, date) VALUES (?,?,now())"
+        // Date Type Insert
+        let queryString = "INSERT INTO history (symptom, vitamins, date) VALUES (?,?,datetime('now'))"
         
         sqlite3_prepare(db, queryString, -1, &stmt, nil)
         
@@ -95,7 +101,7 @@ struct SQLiteVM{
         if sqlite3_step(stmt) == SQLITE_DONE {
             return true
         } else {
-            print("실패")
+            print("insert 실패")
             return false
         }
     }
@@ -119,7 +125,7 @@ struct SQLiteVM{
         if sqlite3_step(stmt) == SQLITE_DONE {
             return true
         } else {
-            print("실패")
+            print("delete 실패")
             return false
         }
     }
