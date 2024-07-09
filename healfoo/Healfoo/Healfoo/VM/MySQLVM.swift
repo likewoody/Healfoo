@@ -10,7 +10,7 @@ import Foundation
 struct MySQLVM{
     func urlRecommend(userInput: String) async -> Recommend {
         // 동적 IP이기 때문에 EC2를 껐다 켤 때마다 IP가 변할 수 있음
-        let serverAddress = "43.200.6.191:8000"
+        let serverAddress = "3.36.87.134:8000"
         let url = "http://\(serverAddress)/recommendByUserInput?userInput=\(userInput)"
         do {
             let (data, _) = try await URLSession.shared.data(from: URL(string: url)!)

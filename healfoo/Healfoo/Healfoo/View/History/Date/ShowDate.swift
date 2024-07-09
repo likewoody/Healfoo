@@ -15,7 +15,7 @@ import SwiftUI
 
 struct ShowDate: View {
 
-    @ObservedObject var dateState: DateState
+    @ObservedObject var myState: MyState
     @Environment (\.dismiss) var dismiss
     
     var body: some View {
@@ -27,16 +27,16 @@ struct ShowDate: View {
                     .foregroundStyle(.white)
                     .overlay {
                         VStack(alignment: .trailing, content: {
-                            DatePicker("", selection: dateState.isStartDate ? $dateState.startDate : $dateState.lastDate, displayedComponents: [.date])
+                            DatePicker("", selection: myState.isStartDate ? $myState.startDate : $myState.lastDate, displayedComponents: [.date])
                                 .background(.white)
                             // displayedCompoenets .date 날짜만 선택할 수 있게끔 설정
                                 .datePickerStyle(.graphical)
                                 .frame(width: 350)
-                                .onChange(of: dateState.startDate, {
-                                    dateState.isStartDate = false
+                                .onChange(of: myState.startDate, {
+                                    myState.isStartDate = false
                                 }) // onChange
-                                .onChange(of: dateState.lastDate, {
-                                    dateState.isLastDate = false
+                                .onChange(of: myState.lastDate, {
+                                    myState.isLastDate = false
                                 }) // onChange
                             
                             HStack(content: {
@@ -64,10 +64,10 @@ struct ShowDate: View {
             .frame(width: 70, height: 38)
             .overlay {
                 Button(okOrCancel ? "확인" : "취소") {
-                    if dateState.isStartDate {
-                        dateState.isStartDate = false
+                    if myState.isStartDate {
+                        myState.isStartDate = false
                     } else {
-                        dateState.isLastDate = false
+                        myState.isLastDate = false
                     }
                 } // Button
                 .foregroundStyle(okOrCancel ? .white : .accent)

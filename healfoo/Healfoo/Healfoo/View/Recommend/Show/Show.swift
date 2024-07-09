@@ -21,6 +21,8 @@ struct Show: View {
     
     @Binding var symptom: String
     @State var recommend: Recommend = Recommend(foodList: [], materials: [], needVitamins: [])
+    @StateObject var dateState = MyState()
+    @State var isLoading: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -38,12 +40,17 @@ struct Show: View {
                 }) // VStack
                 .padding(.top, 30)
                 
+                Divider()
                 
                 // MARK: 필요 비타민 Section
                 NeedVitamins(recommend: recommend)
                 
+                Divider()
+                
                 // MARK: 식재료 Section
                 MaterialView(recommend: recommend)
+                
+                Divider()
                 
                 // MARK: 음식 Section
                 FoodView(recommend: recommend)
@@ -61,20 +68,13 @@ struct Show: View {
                 
                 // needVitamins "," 기준으로 나눠서 String으로 변환
                 let vitamins = recommend.needVitamins.joined(separator: ",")
-                _ = sqlite.insertDB(symptom: symptom, vitamins: vitamins)
+                _ = sqlite.insertDB(symptom: symptom, vitamins: vitamins, date: dateState.dateFormatter.string(from: Date()))
             } // Task
         }) // onAppear
         .onDisappear(perform: {
             // 초기화 시키기
             symptom = ""
         }) // onDisappear
-        //        .toolbar(content: {
-        //            ToolbarItem(placement: .principal) {
-        //                Text("추천 음식")
-        //                    .foregroundStyle(.accent)
-        //            } // ToolbarItem
-        //        }) // toolbar
-        //        .navigationBarTitleDisplayMode(.inline)
         
     } // body
 } // ShowView

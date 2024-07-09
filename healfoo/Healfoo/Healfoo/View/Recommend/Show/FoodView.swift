@@ -12,15 +12,16 @@ struct FoodView: View{
     let recommend: Recommend
     
     var body: some View {
+
         Text("음식")
-            .frame(maxWidth: .infinity / 2)
-            .font(.title3)
-            .foregroundStyle(.white)
-            .bold()
-            .background(.accent)
-            .padding(.top, 20)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .font(.system(size: 18))
+//            .foregroundStyle(.white)
+//            .bold()
+//            .background(.accent)
+            .padding([.top, .leading], 20)
         
-//                List{
+        
         ForEach(recommend.foodList, id: \.food) { food in
             HStack(content: {
                 
@@ -60,9 +61,7 @@ struct FoodView: View{
             
         } // ForEach
         .padding()
-//                .padding(.vertical, 5) // 각 아이템 사이의 수직 간격
-//                } // List
-//                .listStyle(.plain)
+
     } // body
 } // FoodView
 

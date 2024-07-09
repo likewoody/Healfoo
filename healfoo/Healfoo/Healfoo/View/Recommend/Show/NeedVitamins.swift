@@ -12,12 +12,12 @@ struct NeedVitamins: View {
     
     var body: some View {
         Text("필요 비타민")
-            .frame(maxWidth: .infinity / 2)
-            .font(.title3)
-            .foregroundStyle(.white)
-            .bold()
-            .background(.accent)
-            .padding(.top, 20)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .font(.system(size: 18))
+//            .foregroundStyle(.white)
+//            .bold()
+//            .background(.accent)
+            .padding([.top, .leading], 20)
             
         
         ScrollView(.horizontal) {
@@ -40,6 +40,7 @@ struct NeedVitamins: View {
             }) // LazyVGrid
                 
         } // ScrollView
+        .padding(.bottom, 20)
     } // body
 } // NeedVitamins
 

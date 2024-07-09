@@ -15,17 +15,18 @@ import SwiftUI
 
 struct CustomDateView: View {
 
-    @ObservedObject var dateState: DateState
+    
+    @ObservedObject var myState: MyState
     
     var body: some View {
         
         ZStack(content: {
-            if dateState.showDatePicker {
+            if myState.showDatePicker {
                 Color.black
                     .opacity(0.3)
                 
                 // separate View
-                SetDateFrame(dateState: dateState)
+                SetDateFrame(myState: myState)
                 
             } // if ~ else
         }) // ZStack
@@ -37,7 +38,7 @@ struct CustomDateView: View {
 
 // MARK: SetDate의 Frame
 struct SetDateFrame: View {
-    @ObservedObject var dateState: DateState
+    @ObservedObject var myState: MyState
     
     var body: some View{
         GeometryReader(content: { geometry in
@@ -46,7 +47,7 @@ struct SetDateFrame: View {
                 .frame(width: geometry.size.width / 1.3, height: geometry.size.height / 2.7)
                 .offset(x: geometry.size.width - (geometry.size.width * 0.88) , y: geometry.size.height / 3.5)
                 .overlay {
-                    SetDateContent(dateState: dateState)
+                    SetDateContent(myState: myState)
                 }
         }) // GeometryReader
         
@@ -57,7 +58,7 @@ struct SetDateFrame: View {
 
 // MARK: SetDate의 Content
 struct SetDateContent: View {
-    @ObservedObject var dateState: DateState
+    @ObservedObject var myState: MyState
     
     var body: some View{
         GeometryReader(content: { geometry in
@@ -74,21 +75,21 @@ struct SetDateContent: View {
                     
                     // 이렇게 안하면 화면들이 여러 개가 겹쳐서 보인다.
                     // 시작일을 클릭했을 때 밑에 친구들이 보여서 가려줌
-                    if !dateState.isStartDate{
+                    if !myState.isStartDate{
                         Divider()
                             .padding([.top, .bottom], 10)
                         
                         
                         startLastView(key: 2)
         
-                        if !dateState.isLastDate{
+                        if !myState.isLastDate{
                             Divider()
                                 .padding([.top, .bottom], 10)
                             
-                            RadioButtonView()
+                            RadioButtonView(myState: myState)
                                 .padding(.top, 10)
                             
-                            ConfirmButton(dateState: dateState)
+                            ConfirmButton(myState: myState)
                         } // 2차 if
                     } // 1차 if
                 }) // VStack
@@ -115,22 +116,22 @@ struct SetDateContent: View {
                 
                 Button(action: {
                     if key == 1 {
-                        dateState.isStartDate = true
+                        myState.isStartDate = true
                     } else {
-                        dateState.isLastDate = true
+                        myState.isLastDate = true
                     }
                 }, label: {
-                    Text(key == 1 ? dateState.startDate : dateState.lastDate, style: .date)
+                    Text(key == 1 ? myState.startDate : myState.lastDate, style: .date)
                         .font(.system(size: 16))
                         .padding(.trailing, 10)
                 })
             }
             
             // 이렇게 안하면 화면들이 여러 개가 겹쳐서 보인다.
-            if key == 1 && dateState.isStartDate{
-                ShowDate(dateState: dateState)
-            } else if key == 2 && dateState.isLastDate {
-                ShowDate(dateState: dateState)
+            if key == 1 && myState.isStartDate{
+                ShowDate(myState: myState)
+            } else if key == 2 && myState.isLastDate {
+                ShowDate(myState: myState)
             }
             
         } // ZStack
@@ -142,6 +143,7 @@ struct SetDateContent: View {
 
 struct RadioButtonView: View{
     
+    @ObservedObject var myState: MyState
     @State var selectedRadio = 2
     
     var body: some View{
@@ -206,8 +208,18 @@ struct RadioButtonView: View{
                         .foregroundStyle(.gray)
                 } // if
             } // overlay
-            
-
+            .onChange(of: selectedRadio) {
+                switch selectedRadio{
+                case 0:
+                    let calendar = Calendar.current
+                    myState.startDate = calendar.date(byAdding: .month, value: -1, to: Date())!
+                case 1:
+                    let calendar = Calendar.current
+                    myState.startDate = calendar.date(byAdding: .month, value: -3, to: Date())!
+                default:
+                    break
+                } // switch
+            } // onChange
     } // whichOneSelectedRadioButton
     
 } // RadioButtonView
@@ -215,7 +227,7 @@ struct RadioButtonView: View{
 
 // MARK: OK or Cancel
 struct ConfirmButton: View{
-    @ObservedObject var dateState: DateState
+    @ObservedObject var myState: MyState
     @Environment (\.dismiss) var dismiss
     
     var body: some View {
@@ -238,7 +250,10 @@ struct ConfirmButton: View{
             .overlay {
                 Button(okOrCancel ? "확인" : "취소") {
                     if okOrCancel{
-                        dateState.showDatePicker = false
+                        let sqlite = SQLiteVM()
+                        
+                        myState.showDatePicker = false
+                        myState.history = sqlite.searchDB(startDate: myState.dateFormatter.string(from: myState.startDate), lastDate: myState.dateFormatter.string(from: myState.lastDate))
                     }else {
                         dismiss()
                     }

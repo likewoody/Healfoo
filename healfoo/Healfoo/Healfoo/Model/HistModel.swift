@@ -11,9 +11,9 @@ struct HistModel{
     var id: Int
     var symptom: String
     var vitamins: String
-    var date: Date?
+    var date: String
     
-    init(id: Int, symptom: String, vitamins: String, date: Date) {
+    init(id: Int, symptom: String, vitamins: String, date: String) {
         self.id = id
         self.symptom = symptom
         self.vitamins = vitamins

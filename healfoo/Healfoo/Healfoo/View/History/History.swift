@@ -11,30 +11,19 @@
     Description : 히스토리 View 특이사항은 없다. 다만 opacity background 할 때 BackgroundClearView를 활용하자
 */
 
-
-// 내일 작업해야 할 것 날짜에 맞는 select만 보여주는 작업을 완료 해야 함.
-
 import SwiftUI
 
 struct History: View {
     
     // Published를 Binding 하기 위해서는 StateObject or ObservedObject 사용
-    @StateObject var dateState = DateState()
+    @StateObject var myState = MyState()
     @Environment(\.dismiss) var dismiss
-    @State var history: [HistModel] = []
-    
-    var dateFormatter: DateFormatter{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd"
-        return dateFormatter
-    }
     
     var body: some View {
         NavigationStack {
-            
             Section {
                 List{
-                    ForEach(history, id: \.id) { hist in
+                    ForEach(myState.history, id: \.id) { hist in
                         VStack(alignment: .leading ,content: {
                             Text(hist.symptom)
                                 .font(.title3)
@@ -44,15 +33,28 @@ struct History: View {
                         }) // VStack
                         
                     } // ForEach
+                    .onDelete(perform: { indexSet in
+                        // 삭제할 항목들의 ID를 먼저 수집합니다
+                        let idsToDelete = indexSet.map { myState.history[$0].id }
+                        
+                        // 로컬 데이터에서 항목을 제거합니다
+                        myState.history.remove(atOffsets: indexSet)
+                        
+                        // 데이터베이스에서 항목을 삭제합니다
+                        for id in idsToDelete {
+                            print(id)
+                            _ = myState.sqlite.deleteDB(id: id)
+                        }
+                    })
                     .padding()
                 } // List
             } header: {
                 HStack(content: {
-                    Text("\(dateFormatter.string(from: dateState.startDate)) ~ \(dateFormatter.string(from: dateState.lastDate))")
+                    Text("\(myState.dateFormatter.string(from: myState.startDate)) ~ \(myState.dateFormatter.string(from: myState.lastDate))")
                         .padding(.leading, 15)
                     Spacer()
                     Button("기간 설정") {
-                        dateState.showDatePicker = true
+                        myState.showDatePicker = true
                     }
                     .padding(.trailing, 15)
                 })
@@ -60,14 +62,18 @@ struct History: View {
 
             } // Section - Header
         } // NavigationStack
-        .fullScreenCover(isPresented: $dateState.showDatePicker, content: {
-            CustomDateView(dateState: dateState)
+        .fullScreenCover(isPresented: $myState.showDatePicker, content: {
+            CustomDateView(myState: myState)
                 .background(BackgroundClearView())
         }) // ScreenCover
         .onAppear(perform: {
             let sqlite = SQLiteVM()
-            history = sqlite.searchDB()
-        })
+            
+            myState.history = sqlite.searchDB(
+                startDate: myState.dateFormatter.string(from: myState.startDate),
+                lastDate: myState.dateFormatter.string(from: myState.lastDate)
+            )
+        }) // onAppear
     } // body
 } // History
 
